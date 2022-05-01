@@ -1,2 +1,4 @@
-datasets/
+clean_datasets
+datasets
+normalized_datasets
 resources
