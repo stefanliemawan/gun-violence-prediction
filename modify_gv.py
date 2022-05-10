@@ -1,7 +1,6 @@
 import pandas as pd
 
-
-def main():
+def groupByDate():
     gv_df = pd.read_csv("./clean_datasets/gun_violence.csv") 
 
     grouped_by_date = dict(list(gv_df.groupby(["Date"])))
@@ -16,6 +15,12 @@ def main():
     modified_gv_df = pd.DataFrame({"Dates": dates, "States": states})
 
     modified_gv_df.to_csv("./modified_datasets/gun_violence.csv", index=False)
+
+def addMissingDates():
+    gv_df = pd.read_csv("./modified_datasets/gun_violence.csv")
+
+def main():
+    groupByDate()
 
 
 main()
