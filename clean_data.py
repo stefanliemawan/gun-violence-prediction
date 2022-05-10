@@ -11,7 +11,7 @@ def handleGunViolence():
     
     gun_violence_df["Year"] = gun_violence_df["Year"].astype("int")
 
-    gun_violence_df.to_csv("./clean_datasets/clean_gun_violence.csv", index=False)
+    gun_violence_df.to_csv("./clean_datasets/gun_violence.csv", index=False)
 
     return gun_violence_df
 
@@ -21,7 +21,7 @@ def handleStateCrime():
     state_crime = state_crime.loc[state_crime["Year"] >= 2013]
     state_crime = state_crime.loc[state_crime["Year"] <= 2018]
 
-    state_crime.to_csv("./clean_datasets/clean_state_crime.csv", index=False)
+    state_crime.to_csv("./clean_datasets/state_crime.csv", index=False)
 
     return state_crime
     
@@ -33,7 +33,7 @@ def joinDataset():
 
     joined_dataset_df = gun_violence_df.merge(state_crime_df, on=["State","Year"])
 
-    joined_dataset_df.to_csv("./clean_datasets/clean_joined.csv", index=False)
+    joined_dataset_df.to_csv("./clean_datasets/gv_sc_joined.csv", index=False)
 
     print(joined_dataset_df.head())
 

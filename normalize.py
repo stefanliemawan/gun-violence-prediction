@@ -12,7 +12,7 @@ def convertDateToUnix(date_series):
 
 
 def main():
-    dataset = pd.read_csv("./clean_datasets/clean_joined.csv")
+    dataset = pd.read_csv("./clean_datasets/gv_sc_joined.csv")
     dataset["Date"] = convertDateToUnix(dataset["Date"])
 
     features = dataset.iloc[:, 3:].to_numpy()
@@ -20,7 +20,7 @@ def main():
     normalized_features = normalize(features)
 
     dataset.iloc[:, 3:] = normalized_features
-    dataset.to_csv("./normalized_datasets/normalized_joined.csv", index=False)
+    dataset.to_csv("./normalized_datasets/gv_sc_joined.csv", index=False)
 
 
 main()
